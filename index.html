@@ -1,0 +1,2199 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>열린학원 금촌점 | 성적의 한계를 넘어 배움의 가능성을 열다 (SINCE 1996)</title>
+  
+  <!-- Pretendard Webfont CDN -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Tone.js CDN for interactive sound effects -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#2563eb',
+              600: '#1b449c', // Yeollin Navy Blue
+              700: '#15367c',
+              800: '#0e265c',
+              dark: '#081738',
+              magenta: '#e11d74',
+              green: '#10b981',
+              emerald: '#059669',
+              amber: '#f59e0b'
+            }
+          },
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+          },
+          boxShadow: {
+            'glow-blue': '0 20px 45px -12px rgba(27, 68, 156, 0.28)',
+            'card-float': '0 12px 30px -8px rgba(15, 23, 42, 0.08)',
+            'dock-mobile': '0 -4px 20px rgba(0, 0, 0, 0.08)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Pretendard', sans-serif;
+      word-break: keep-all;
+      overflow-x: hidden;
+    }
+    
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .admin-editable-outline {
+      outline: 2px dashed #1b449c !important;
+      outline-offset: 3px;
+      position: relative;
+      background-color: rgba(27, 68, 156, 0.05);
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    .admin-editable-outline:hover {
+      background-color: rgba(27, 68, 156, 0.12);
+    }
+    .admin-editable-outline::after {
+      content: '✎ 수정';
+      position: absolute;
+      top: -22px;
+      right: 0;
+      background-color: #1b449c;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+      pointer-events: none;
+      opacity: 0.9;
+      z-index: 40;
+    }
+
+    .subject-tab-active {
+      background-color: #1b449c !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 14px rgba(27, 68, 156, 0.35);
+    }
+
+    @keyframes pulse-soft {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+    .animate-pulse-soft {
+      animation: pulse-soft 3.5s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-[#f8faff] text-slate-800 antialiased selection:bg-brand-600 selection:text-white pb-20 sm:pb-0">
+
+  <!-- Top Announcement Notification Bar -->
+  <aside id="top-announcement" class="bg-gradient-to-r from-brand-800 via-brand-600 to-indigo-900 text-white text-[11px] sm:text-xs py-2 px-3 sm:px-4 shadow-sm relative z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2 overflow-hidden truncate">
+        <span class="bg-brand-magenta text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full shrink-0 flex items-center gap-1 shadow-sm">
+          <i data-lucide="sparkles" class="w-3 h-3"></i> 2026 집중 정규반
+        </span>
+        <span data-key="bannerText" class="font-medium tracking-tight truncate">파주 금촌 1위 국·영·수·과 1:1 맞춤 정규반 모집 중 (선착순 마감)</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-4 text-xs font-semibold shrink-0">
+        <a href="tel:031-943-3229" class="text-blue-100 flex items-center gap-1.5 hover:text-white transition-colors">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>031-943-3229</span>
+        </a>
+        <span class="text-blue-300/60">|</span>
+        <span class="text-blue-100">SINCE 1996</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation Bar -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo Area -->
+      <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+        <div id="logoContainer" class="flex items-center gap-2 sm:gap-2.5">
+          <!-- Native SVG Logo -->
+          <div class="w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center shrink-0">
+            <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-sm">
+              <ellipse cx="28" cy="22" rx="8" ry="16" transform="rotate(-35 28 22)" fill="#22c55e" />
+              <ellipse cx="50" cy="14" rx="8" ry="16" fill="#84cc16" />
+              <ellipse cx="72" cy="22" rx="8" ry="16" transform="rotate(35 72 22)" fill="#10b981" />
+              <ellipse cx="22" cy="46" rx="9" ry="15" transform="rotate(-70 22 46)" fill="#e11d74" />
+              <path d="M30 84 C34 68 44 56 42 42 C40 38 35 34 33 32 C41 33 46 36 50 44 C54 36 59 33 67 32 C65 34 60 38 58 42 C56 56 66 68 70 84 Z" fill="#1b449c" />
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <div class="flex items-baseline gap-1 sm:gap-1.5">
+              <span data-key="brandTitle" class="text-lg sm:text-2xl font-black text-[#1b449c] tracking-tight group-hover:text-blue-700 transition-colors">열린학원</span>
+              <span data-key="branchName" class="text-[10px] sm:text-xs font-black text-brand-600 bg-blue-50 px-1.5 sm:px-2 py-0.5 rounded border border-blue-100">금촌점</span>
+            </div>
+            <div class="flex items-center gap-1.5 -mt-0.5">
+              <span class="text-[9px] sm:text-[10px] font-black text-brand-600 tracking-wider">SINCE 1996</span>
+              <span class="text-[9px] sm:text-[10px] text-slate-400 font-semibold truncate hidden xs:inline">국·영·수·과 1:1 맞춤 입시</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Navigation (>= lg) -->
+      <nav class="hidden lg:flex items-center gap-7 text-[14px] xl:text-[15px] font-bold text-slate-700">
+        <a href="#about-philosophy" class="hover:text-brand-600 transition-colors">학원 철학</a>
+        <a href="#subjects-section" class="hover:text-brand-600 transition-colors">4대 학과 & 강사진</a>
+        <a href="#media-showcase" class="hover:text-brand-600 transition-colors">학습 현장 영상</a>
+        <a href="#care-system" class="hover:text-brand-600 transition-colors">4대 밀착케어</a>
+        <a href="#facility-section" class="hover:text-brand-600 transition-colors">시설 둘러보기</a>
+        <a href="#results-section" class="hover:text-brand-600 transition-colors">성적 향상 후기</a>
+        <a href="#location-section" class="hover:text-brand-600 transition-colors">오시는 길</a>
+      </nav>
+
+      <!-- Action Area -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Direct Call Link (Desktop/Tablet) -->
+        <a href="tel:031-943-3229" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-brand-600 text-xs font-extrabold border border-blue-200 transition-all">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+          <span>031-943-3229</span>
+        </a>
+
+        <!-- Admin Mode Access Button -->
+        <button id="adminLoginBtn" onclick="toggleAdminAccess()" class="text-xs px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-brand-600 flex items-center gap-1 font-bold transition-all">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-slate-500"></i>
+          <span id="adminStatusLabel" class="text-[11px] sm:text-xs">관리자</span>
+        </button>
+
+        <!-- CTA Direct Consultation Button -->
+        <button onclick="scrollToConsultation()" class="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-extrabold shadow-md shadow-brand-600/25 hover:-translate-y-0.5 transition-all">
+          <i data-lucide="calendar-check" class="w-3.5 h-3.5"></i>
+          <span>1:1 상담 예약</span>
+        </button>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <button onclick="toggleMobileDrawer()" class="lg:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 transition-all" aria-label="메뉴 열기">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay Menu -->
+  <div id="mobileDrawer" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden transition-opacity">
+    <div class="fixed right-0 top-0 bottom-0 w-[280px] bg-white shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
+      <div>
+        <div class="flex items-center justify-between pb-5 border-b border-slate-100 mb-6">
+          <div class="flex items-center gap-2">
+            <span class="font-black text-lg text-brand-600">열린학원 금촌점</span>
+          </div>
+          <button onclick="toggleMobileDrawer()" class="p-1 rounded-lg text-slate-400 hover:text-slate-700">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <nav class="flex flex-col space-y-4 font-bold text-slate-800 text-base">
+          <a href="#about-philosophy" onclick="toggleMobileDrawer()" class="py-1 hover:text-brand-600 flex items-center justify-between">
+            <span>학원 철학</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300"></i>
+          </a>
+          <a href="#subjects-section" onclick="toggleMobileDrawer()" class="py-1 hover:text-brand-600 flex items-center justify-between">
+            <span>4대 학과 & 강사진</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300"></i>
+          </a>
+          <a href="#media-showcase" onclick="toggleMobileDrawer()" class="py-1 hover:text-brand-600 flex items-center justify-between">
+            <span>학습 현장 영상</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300"></i>
+          </a>
+          <a href="#care-system" onclick="toggleMobileDrawer()" class="py-1 hover:text-brand-600 flex items-center justify-between">
+            <span>4대 밀착케어</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300"></i>
+          </a>
+          <a href="#facility-section" onclick="toggleMobileDrawer()" class="py-1 hover:text-brand-600 flex items-center justify-between">
+            <span>시설 둘러보기</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300"></i>
+          </a>
+          <a href="#results-section" onclick="toggleMobileDrawer()" class="py-1 hover:text-brand-600 flex items-center justify-between">
+            <span>성적 향상 후기</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300"></i>
+          </a>
+          <a href="#location-section" onclick="toggleMobileDrawer()" class="py-1 hover:text-brand-600 flex items-center justify-between">
+            <span>오시는 길 & 상담</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300"></i>
+          </a>
+        </nav>
+      </div>
+
+      <div class="pt-6 border-t border-slate-100 space-y-3">
+        <a href="tel:031-943-3229" class="w-full py-3 bg-blue-50 text-brand-600 rounded-xl font-bold text-sm flex items-center justify-center gap-2 border border-blue-200">
+          <i data-lucide="phone-call" class="w-4 h-4"></i>
+          <span>031-943-3229 전화하기</span>
+        </a>
+        <button onclick="toggleMobileDrawer(); scrollToConsultation();" class="w-full py-3 bg-brand-600 text-white rounded-xl font-bold text-sm shadow">
+          무료 진단 & 상담 신청
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="about-philosophy" class="relative pt-8 sm:pt-14 pb-14 sm:pb-24 overflow-hidden bg-gradient-to-b from-white via-blue-50/20 to-[#f8faff]">
+    <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-[340px] sm:w-[700px] h-[340px] bg-brand-200/25 rounded-full blur-[90px] sm:blur-[130px] pointer-events-none -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Title Area -->
+      <div class="text-center max-w-4xl mx-auto mb-8 sm:mb-12">
+        <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/70 text-brand-600 text-[11px] sm:text-xs font-extrabold mb-5 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-brand-magenta animate-pulse"></span>
+          <span data-key="heroBadge">SINCE 1996 · 파주 금촌 30년 전통 1:1 맞춤 입시</span>
+        </div>
+
+        <!-- NEW MODERN MAIN COPY -->
+        <h1 class="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.25] mb-4 sm:mb-6">
+          <span data-key="heroTitleLine1" class="block">성적의 한계를 넘어,</span>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#1b449c] via-blue-600 to-indigo-700" data-key="heroTitleHighlight">배움의 가능성을 엽니다</span>
+        </h1>
+
+        <p data-key="heroSubtitle" class="max-w-2xl mx-auto text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed font-normal mb-7 sm:mb-9 px-2 sm:px-0">
+          단순한 점수 상승을 넘어 스스로 몰입하는 공부의 기준을 완성합니다. 국어·영어·수학·과학 전문 강사진의 1:1 오답 클리닉과 철저한 주간 리포트로 금촌 학생들의 잠재력을 확실한 실력으로 입증합니다.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto">
+          <button onclick="scrollToConsultation()" class="w-full sm:w-auto px-6 sm:px-8 py-3.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-extrabold text-sm sm:text-base shadow-xl shadow-brand-600/30 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+            <span>무료 1:1 레벨진단 & 심층상담</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+          <a href="tel:031-943-3229" class="w-full sm:w-auto px-5 sm:px-6 py-3.5 bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 rounded-xl font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 shadow-sm">
+            <i data-lucide="phone-call" class="w-4 h-4 text-brand-600"></i>
+            <span>031-943-3229 문의</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Video / Media Showcase Frame -->
+      <div class="relative max-w-5xl mx-auto mt-4 sm:mt-8">
+        <!-- Floating Stat Badges -->
+        <div class="hidden sm:flex absolute -top-4 -left-6 z-20 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-lg border border-slate-100 items-center gap-3 animate-pulse-soft">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 text-brand-600 flex items-center justify-center font-black">
+            <i data-lucide="trending-up" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Average Improvement</div>
+            <div class="text-xs sm:text-sm font-black text-slate-900">내신 +28.5점 평균 상승</div>
+          </div>
+        </div>
+
+        <div class="hidden sm:flex absolute -bottom-5 -right-6 z-20 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-lg border border-slate-100 items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-black">
+            <i data-lucide="check-check" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-[10px] text-slate-400 font-bold tracking-wider">오답 3단계 분석</div>
+            <div class="text-xs sm:text-sm font-black text-slate-900">1:1 클리닉 완료율 100%</div>
+          </div>
+        </div>
+
+        <!-- Video Frame -->
+        <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl border-2 sm:border-4 border-white bg-slate-900 group aspect-video">
+          <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-700">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-young-student-studying-in-a-library-41551-large.mp4" type="video/mp4">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1600&auto=format&fit=crop" alt="열린학원 금촌점 학습 현장" class="w-full h-full object-cover">
+          </video>
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent flex flex-col justify-end p-4 sm:p-8 text-white pointer-events-none">
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-600/90 text-white text-[10px] sm:text-xs font-bold w-fit mb-2 backdrop-blur-sm">
+              <i data-lucide="play" class="w-3 h-3 fill-white"></i> 1:1 몰입 피드백 시스템
+            </div>
+            <h3 class="text-base sm:text-2xl font-black tracking-tight leading-snug">
+              질문이 자유로운 분위기, 취약점이 완전히 극복될 때까지 함께합니다
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Counters -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto mt-8 sm:mt-12">
+        <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-100 shadow-sm text-center">
+          <div class="text-2xl sm:text-3xl font-black text-brand-600 mb-0.5" data-key="stat1">30년</div>
+          <div class="text-[11px] sm:text-xs font-bold text-slate-500" data-key="stat1Label">금촌 지역 명문 입시 전통</div>
+        </div>
+        <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-100 shadow-sm text-center">
+          <div class="text-2xl sm:text-3xl font-black text-brand-magenta mb-0.5" data-key="stat2">97.8%</div>
+          <div class="text-[11px] sm:text-xs font-bold text-slate-500" data-key="stat2Label">재원생 성적 향상 및 유지</div>
+        </div>
+        <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-100 shadow-sm text-center">
+          <div class="text-2xl sm:text-3xl font-black text-emerald-600 mb-0.5" data-key="stat3">8인 전문팀</div>
+          <div class="text-[11px] sm:text-xs font-bold text-slate-500" data-key="stat3Label">국·영·수·과 챕터별 강사진</div>
+        </div>
+        <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-100 shadow-sm text-center">
+          <div class="text-2xl sm:text-3xl font-black text-slate-900 mb-0.5" data-key="stat4">1:1 맞춤</div>
+          <div class="text-[11px] sm:text-xs font-bold text-slate-500" data-key="stat4Label">취약 유형 3단계 무한 클리닉</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4-Subject Detailed Section with Mobile Horizontal Scroll Tabs -->
+  <section id="subjects-section" class="py-14 sm:py-20 bg-white border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+        <span class="text-brand-600 text-xs sm:text-sm font-extrabold tracking-widest uppercase block mb-1.5">Academic Departments</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight" data-key="subjectHeading">
+          국어·영어·수학·과학 4대 학과 & 전문 강사진
+        </h2>
+        <p class="mt-2 text-slate-600 text-xs sm:text-base" data-key="subjectSub">
+          각 영역별 전담 강사진의 챕터별 전문 지도와 단계별 학습 로드맵으로 흔들리지 않는 최상위권을 완성합니다.
+        </p>
+
+        <!-- Subject Switcher Pills -->
+        <div class="flex items-center justify-start sm:justify-center overflow-x-auto no-scrollbar gap-2 p-1.5 mt-6 bg-slate-100 rounded-2xl max-w-full border border-slate-200/80">
+          <button id="tab-btn-math" onclick="switchSubjectTab('math')" class="subject-tab-active px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap transition-all flex items-center gap-1.5">
+            <span>수학과 (3인)</span>
+          </button>
+          <button id="tab-btn-english" onclick="switchSubjectTab('english')" class="px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5">
+            <span>영어과 (3인)</span>
+          </button>
+          <button id="tab-btn-korean" onclick="switchSubjectTab('korean')" class="px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5">
+            <span>국어과 (2인)</span>
+          </button>
+          <button id="tab-btn-science" onclick="switchSubjectTab('science')" class="px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5">
+            <span>과학교과 (1인)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================== DEPARTMENT 1: MATH (수학) ==================== -->
+      <div id="subject-tab-math" class="subject-panel space-y-8">
+        
+        <div class="border-b border-slate-100 pb-3 flex items-center justify-between">
+          <div>
+            <h3 class="text-lg sm:text-xl font-black text-slate-900 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span> 수학과 챕터별 전문 강사진 라인업
+            </h3>
+            <p class="text-xs text-slate-500 mt-0.5">기출 유형 분석, 고난도 클리닉, 개념 백지화 3단계 분업 체계</p>
+          </div>
+          <button onclick="scrollToConsultation('수학')" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 hidden sm:inline-flex items-center gap-1">
+            수학 상담 신청 <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+
+        <!-- 3 Math Instructors Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Math Teacher 1: 수선T -->
+          <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-card-float transition-all p-5 flex flex-col justify-between group">
+            <div>
+              <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-slate-900 mb-4 shadow-inner">
+                <img id="teacherImg-math-sooseon" 
+                     src="./images/math-sooseon.jpg" 
+                     alt="수학 수선T" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x500/0f172a/ffffff?text=수학+수선T';" 
+                     class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                  <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-emerald-600/90 text-white backdrop-blur-sm">
+                    고등 기출 유형 & 킬러 챕터
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-1.5">
+                <h4 class="text-lg font-black text-slate-900" data-key="teacherName-math-sooseon">수학 수선 T</h4>
+                <button onclick="changeTeacherPhoto('math-sooseon')" class="text-[10px] font-bold text-slate-400 hover:text-brand-600 flex items-center gap-0.5">
+                  <i data-lucide="camera" class="w-3 h-3"></i> 사진변경
+                </button>
+              </div>
+
+              <p class="text-xs font-bold text-emerald-600 mb-2" data-key="teacherRole-math-sooseon">
+                고등 기출 유형 분석 & 실전 킬러 마스터
+              </p>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4" data-key="teacherBio-math-sooseon">
+                금촌 관내 고교 7개년 기출 변형 완벽 분석. 수능 14, 15, 21, 22번 고난도 유형의 조건 해석 알고리즘 정립과 시간 단축 풀이법을 전수합니다.
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500 font-medium">담당: 고등 심화 / 수능 정규</span>
+              <button onclick="scrollToConsultation('수학')" class="text-emerald-700 font-extrabold hover:underline">상담 예약</button>
+            </div>
+          </div>
+
+          <!-- Math Teacher 2: 수석T -->
+          <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-card-float transition-all p-5 flex flex-col justify-between group">
+            <div>
+              <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-slate-900 mb-4 shadow-inner">
+                <img id="teacherImg-math-sooseok" 
+                     src="./images/math-sooseok.png" 
+                     alt="수학 수석T" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x500/0f172a/ffffff?text=수학+수석T';" 
+                     class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                  <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-emerald-600/90 text-white backdrop-blur-sm">
+                    고난도 클리닉 & 취약점 추적
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-1.5">
+                <h4 class="text-lg font-black text-slate-900" data-key="teacherName-math-sooseok">수학 수석 T</h4>
+                <button onclick="changeTeacherPhoto('math-sooseok')" class="text-[10px] font-bold text-slate-400 hover:text-brand-600 flex items-center gap-0.5">
+                  <i data-lucide="camera" class="w-3 h-3"></i> 사진변경
+                </button>
+              </div>
+
+              <p class="text-xs font-bold text-emerald-600 mb-2" data-key="teacherRole-math-sooseok">
+                수능·내신 고난도 클리닉 & 취약점 정밀 피드백
+              </p>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4" data-key="teacherBio-math-sooseok">
+                틀린 문제 원본 교정부터 유사 쌍둥이 문항까지 100% 이해할 때까지 무한 반복 피드백. 오답 유사문항 3단계 연계 시스템을 완벽 운영합니다.
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500 font-medium">담당: 중·고등 클리닉 / 내신 1등급</span>
+              <button onclick="scrollToConsultation('수학')" class="text-emerald-700 font-extrabold hover:underline">상담 예약</button>
+            </div>
+          </div>
+
+          <!-- Math Teacher 3: 수수T -->
+          <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-card-float transition-all p-5 flex flex-col justify-between group">
+            <div>
+              <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-slate-900 mb-4 shadow-inner">
+                <img id="teacherImg-math-soosoo" 
+                     src="./images/math-soosoo.png" 
+                     alt="수학 수수T" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x500/0f172a/ffffff?text=수학+수수T';" 
+                     class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                  <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-emerald-600/90 text-white backdrop-blur-sm">
+                    개념 백지 체화 & 밀착 피드백
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-1.5">
+                <h4 class="text-lg font-black text-slate-900" data-key="teacherName-math-soosoo">수학 수수 T</h4>
+                <button onclick="changeTeacherPhoto('math-soosoo')" class="text-[10px] font-bold text-slate-400 hover:text-brand-600 flex items-center gap-0.5">
+                  <i data-lucide="camera" class="w-3 h-3"></i> 사진변경
+                </button>
+              </div>
+
+              <p class="text-xs font-bold text-emerald-600 mb-2" data-key="teacherRole-math-soosoo">
+                개념 백지 체화 & 1:1 밀착 오답 추적 관리
+              </p>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4" data-key="teacherBio-math-soosoo">
+                단순 공식 암기가 아닌 개념 유도 과정 백지 테스트와 1:1 눈높이 맞춤 피드백으로 수학에 대한 두려움을 없애고 성적 반등을 이끌어냅니다.
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500 font-medium">담당: 중·고등 기본 / 내신 도약</span>
+              <button onclick="scrollToConsultation('수학')" class="text-emerald-700 font-extrabold hover:underline">상담 예약</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Math 3-Step Course Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+          <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-extrabold text-emerald-600 uppercase mb-1">Step 01. 개념 유도</div>
+              <h4 class="text-base font-bold text-slate-900 mb-2" data-key="mathC1Title">개념 백지 테스트 & 연산력</h4>
+              <p class="text-xs text-slate-600 leading-relaxed" data-key="mathC1Desc">
+                단순 공식 암기를 배제하고 원리 유도 과정 백지 테스트를 통해 개념 결손 지점을 완전히 보강합니다.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-200 text-xs text-slate-500 space-y-1 mt-4">
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> 데일리 20문항 필수 계산 점검</div>
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> 단원별 개념 구조도 작성 평가</div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border-2 border-emerald-500 p-5 shadow-sm flex flex-col justify-between relative">
+            <span class="absolute -top-3 right-4 bg-emerald-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full shadow">최다 수강 인기 강좌</span>
+            <div>
+              <div class="text-[11px] font-extrabold text-emerald-600 uppercase mb-1">Step 02. 오답 피드백</div>
+              <h4 class="text-base font-bold text-slate-900 mb-2" data-key="mathC2Title">오답 쌍둥이 & 기출 심화</h4>
+              <p class="text-xs text-slate-600 leading-relaxed" data-key="mathC2Desc">
+                틀린 문제 원본 → 유사 쌍둥이 문제 → 고난도 심화 변형까지 100% 이해할 때까지 무한 반복 피드백합니다.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 text-xs text-slate-500 space-y-1 mt-4">
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> 쎈/일품/블랙라벨 기출 변형</div>
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> 50분 타임어택 실전 모의고사</div>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-extrabold text-emerald-600 uppercase mb-1">Step 03. 킬러 정복</div>
+              <h4 class="text-base font-bold text-slate-900 mb-2" data-key="mathC3Title">미적분/기하/확통 준킬러·킬러</h4>
+              <p class="text-xs text-slate-600 leading-relaxed" data-key="mathC3Desc">
+                수능 14, 15, 21, 22번 고난도 유형의 조건 해석 알고리즘 정립과 시간 단축 풀이법을 전수합니다.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-200 text-xs text-slate-500 space-y-1 mt-4">
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> 평가원/교육청 10개년 기출 분해</div>
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> 주간 개인별 취약 단원 맞춤 교재 발급</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================== DEPARTMENT 2: ENGLISH (영어) ==================== -->
+      <div id="subject-tab-english" class="subject-panel hidden space-y-8">
+        
+        <div class="border-b border-slate-100 pb-3 flex items-center justify-between">
+          <div>
+            <h3 class="text-lg sm:text-xl font-black text-slate-900 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-brand-600"></span> 영어과 챕터별 전문 강사진 라인업
+            </h3>
+            <p class="text-xs text-slate-500 mt-0.5">절대평가 수능 1등급, 내신 서술형 영작, 데일리 어휘·구문 완성 3각 편대</p>
+          </div>
+          <button onclick="scrollToConsultation('영어')" class="text-xs font-bold text-brand-600 hover:text-blue-700 hidden sm:inline-flex items-center gap-1">
+            영어 상담 신청 <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+
+        <!-- 3 English Instructors Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- English Teacher 1: 케빈T -->
+          <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-card-float transition-all p-5 flex flex-col justify-between group">
+            <div>
+              <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-slate-900 mb-4 shadow-inner">
+                <img id="teacherImg-eng-kevin" 
+                     src="./images/eng-kevin.jpg" 
+                     alt="영어 케빈T" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x500/0f172a/ffffff?text=영어+케빈T';" 
+                     class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                  <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-brand-600/90 text-white backdrop-blur-sm">
+                    수능 절대평가 & 외부지문 변형
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-1.5">
+                <h4 class="text-lg font-black text-slate-900" data-key="teacherName-eng-kevin">영어 케빈 T</h4>
+                <button onclick="changeTeacherPhoto('eng-kevin')" class="text-[10px] font-bold text-slate-400 hover:text-brand-600 flex items-center gap-0.5">
+                  <i data-lucide="camera" class="w-3 h-3"></i> 사진변경
+                </button>
+              </div>
+
+              <p class="text-xs font-bold text-brand-600 mb-2" data-key="teacherRole-eng-kevin">
+                수능 절대평가 1등급 & 기출 외부지문 변형 분석
+              </p>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4" data-key="teacherBio-eng-kevin">
+                EBS 연계 변형 및 고난도 빈칸 추론/순서 배열 킬러 문항 집중 대비. 관내 고교의 까다로운 부교재 외부지문 변형 문항 데이터베이스 완벽 구축.
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500 font-medium">담당: 고등 심화 / 수능 정규</span>
+              <button onclick="scrollToConsultation('영어')" class="text-brand-600 font-extrabold hover:underline">상담 예약</button>
+            </div>
+          </div>
+
+          <!-- English Teacher 2: 영백T -->
+          <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-card-float transition-all p-5 flex flex-col justify-between group">
+            <div>
+              <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-slate-900 mb-4 shadow-inner">
+                <img id="teacherImg-eng-youngbaek" 
+                     src="./images/eng-youngbaek.png" 
+                     alt="영어 영백T" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x500/0f172a/ffffff?text=영어+영백T';" 
+                     class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                  <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-brand-600/90 text-white backdrop-blur-sm">
+                    내신 서술형 & 필수 구문
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-1.5">
+                <h4 class="text-lg font-black text-slate-900" data-key="teacherName-eng-youngbaek">영어 영백 T</h4>
+                <button onclick="changeTeacherPhoto('eng-youngbaek')" class="text-[10px] font-bold text-slate-400 hover:text-brand-600 flex items-center gap-0.5">
+                  <i data-lucide="camera" class="w-3 h-3"></i> 사진변경
+                </button>
+              </div>
+
+              <p class="text-xs font-bold text-brand-600 mb-2" data-key="teacherRole-eng-youngbaek">
+                내신 서술형 영작 & 빈틈없는 필수 구문 마스터
+              </p>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4" data-key="teacherBio-eng-youngbaek">
+                감점 없는 조건 충족 서술형 영작과 문장 구조 분석의 대가. 학교별 출제 포인트를 정확히 짚어내어 실전 내신 1등급을 완성합니다.
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500 font-medium">담당: 고등 내신 1등급 / 서술형 클리닉</span>
+              <button onclick="scrollToConsultation('영어')" class="text-brand-600 font-extrabold hover:underline">상담 예약</button>
+            </div>
+          </div>
+
+          <!-- English Teacher 3: 캐리T -->
+          <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-card-float transition-all p-5 flex flex-col justify-between group">
+            <div>
+              <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-slate-900 mb-4 shadow-inner">
+                <img id="teacherImg-eng-carrie" 
+                     src="./images/eng-carrie.jpg" 
+                     alt="영어 캐리T" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x500/0f172a/ffffff?text=영어+캐리T';" 
+                     class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                  <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-brand-600/90 text-white backdrop-blur-sm">
+                    어휘 체화 & 중·고등 기본
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-1.5">
+                <h4 class="text-lg font-black text-slate-900" data-key="teacherName-eng-carrie">영어 캐리 T</h4>
+                <button onclick="changeTeacherPhoto('eng-carrie')" class="text-[10px] font-bold text-slate-400 hover:text-brand-600 flex items-center gap-0.5">
+                  <i data-lucide="camera" class="w-3 h-3"></i> 사진변경
+                </button>
+              </div>
+
+              <p class="text-xs font-bold text-brand-600 mb-2" data-key="teacherRole-eng-carrie">
+                데일리 어휘 체화 & 중·고등 기본/실전 완성
+              </p>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4" data-key="teacherBio-eng-carrie">
+                단어 암기와 기본 독해 구문의 튼튼한 뼈대를 완성합니다. 세심한 1:1 피드백과 친근한 코칭으로 학생들의 영어 자신감을 확실하게 회복시킵니다.
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500 font-medium">담당: 중등 전 학년 / 고등 기본기</span>
+              <button onclick="scrollToConsultation('영어')" class="text-brand-600 font-extrabold hover:underline">상담 예약</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- English 3-Step Course Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+          <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-extrabold text-brand-600 uppercase mb-1">Step 01. 구문 기초</div>
+              <h4 class="text-base font-bold text-slate-900 mb-2" data-key="engC1Title">필수 어법 뼈대 & 끊어읽기</h4>
+              <p class="text-xs text-slate-600 leading-relaxed" data-key="engC1Desc">
+                관계사, 분사구문, 가정법 등 핵심 문법 규칙을 단순 암기가 아닌 직독직해 구문에 즉각 적용하도록 훈련합니다.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-200 text-xs text-slate-500 space-y-1 mt-4">
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i> 데일리 누적 VOCA 테스트</div>
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i> 교과서 지문 완벽 통암기 워크북</div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border-2 border-brand-600 p-5 shadow-sm flex flex-col justify-between relative">
+            <span class="absolute -top-3 right-4 bg-brand-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full shadow">내신 1등급 보장반</span>
+            <div>
+              <div class="text-[11px] font-extrabold text-brand-600 uppercase mb-1">Step 02. 내신 변형</div>
+              <h4 class="text-base font-bold text-slate-900 mb-2" data-key="engC2Title">외부지문 변형 & 조건부 영작</h4>
+              <p class="text-xs text-slate-600 leading-relaxed" data-key="engC2Desc">
+                학교별 부교재 및 모의고사 지문 변형 문제를 완벽 대비하고 감점 없는 조건 충족 서술형 영작 훈련을 진행합니다.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 text-xs text-slate-500 space-y-1 mt-4">
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i> 금촌고/문산제일고 기출 족보</div>
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i> 1:1 서술형 문법 오류 교정</div>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-extrabold text-brand-600 uppercase mb-1">Step 03. 수능 킬러</div>
+              <h4 class="text-base font-bold text-slate-900 mb-2" data-key="engC3Title">논리독해 & 빈칸/순서 킬러</h4>
+              <p class="text-xs text-slate-600 leading-relaxed" data-key="engC3Desc">
+                글의 전개 원리(대조/인과/재진술)를 바탕으로 매력적인 오답 선지를 제거하는 수능 1등급 킬러 유형 정복 훈련.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-200 text-xs text-slate-500 space-y-1 mt-4">
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i> 킬러 31~39번 실전 집중 모의고사</div>
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i> 주 1회 실전 듣기/독해 타임어택</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================== DEPARTMENT 3: KOREAN (국어) ==================== -->
+      <div id="subject-tab-korean" class="subject-panel hidden space-y-8">
+        
+        <div class="border-b border-slate-100 pb-3 flex items-center justify-between">
+          <div>
+            <h3 class="text-lg sm:text-xl font-black text-slate-900 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-600"></span> 국어과 챕터별 전문 강사진 라인업
+            </h3>
+            <p class="text-xs text-slate-500 mt-0.5">수능 비문학 독해 메커니즘과 금촌 지역 관내 학교 내신 서술형의 결합</p>
+          </div>
+          <button onclick="scrollToConsultation('국어')" class="text-xs font-bold text-rose-600 hover:text-rose-700 hidden sm:inline-flex items-center gap-1">
+            국어 상담 신청 <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+
+        <!-- 2 Korean Instructors Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          
+          <!-- Korean Teacher 1: 후니T -->
+          <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-card-float transition-all p-5 flex flex-col justify-between group">
+            <div>
+              <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-slate-900 mb-4 shadow-inner">
+                <img id="teacherImg-kor-hooni" 
+                     src="./images/kor-hooni.png" 
+                     alt="국어 후니T" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x500/0f172a/ffffff?text=국어+후니T';" 
+                     class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                  <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-rose-600/90 text-white backdrop-blur-sm">
+                    수능 비문학 & 문해력 독해
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-1.5">
+                <h4 class="text-lg font-black text-slate-900" data-key="teacherName-kor-hooni">국어 후니 T</h4>
+                <button onclick="changeTeacherPhoto('kor-hooni')" class="text-[10px] font-bold text-slate-400 hover:text-brand-600 flex items-center gap-0.5">
+                  <i data-lucide="camera" class="w-3 h-3"></i> 사진변경
+                </button>
+              </div>
+
+              <p class="text-xs font-bold text-rose-600 mb-2" data-key="teacherRole-kor-hooni">
+                수능 국어 비문학 독해 메커니즘 & 문해력 완성
+              </p>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4" data-key="teacherBio-kor-hooni">
+                고난도 비문학 지문의 도식화 독해법과 평가원 기출 10개년 출제 코드 완벽 분해. 빠르고 정확하게 정답의 근거를 찾는 실전 독해력을 키웁니다.
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500 font-medium">담당: 고등 독서·문학 / 수능 정규</span>
+              <button onclick="scrollToConsultation('국어')" class="text-rose-600 font-extrabold hover:underline">상담 예약</button>
+            </div>
+          </div>
+
+          <!-- Korean Teacher 2: 국강T -->
+          <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-card-float transition-all p-5 flex flex-col justify-between group">
+            <div>
+              <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-slate-900 mb-4 shadow-inner">
+                <img id="teacherImg-kor-kookgang" 
+                     src="./images/kor-kookgang.jpg" 
+                     alt="국어 국강T" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x500/0f172a/ffffff?text=국어+국강T';" 
+                     class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
+                  <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-rose-600/90 text-white backdrop-blur-sm">
+                    관내 내신 & 서술형 감점 제로
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-1.5">
+                <h4 class="text-lg font-black text-slate-900" data-key="teacherName-kor-kookgang">국어 국강 T</h4>
+                <button onclick="changeTeacherPhoto('kor-kookgang')" class="text-[10px] font-bold text-slate-400 hover:text-brand-600 flex items-center gap-0.5">
+                  <i data-lucide="camera" class="w-3 h-3"></i> 사진변경
+                </button>
+              </div>
+
+              <p class="text-xs font-bold text-rose-600 mb-2" data-key="teacherRole-kor-kookgang">
+                금촌 관내 학교 기출 분석 & 서술형 감점 제로 첨삭
+              </p>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4" data-key="teacherBio-kor-kookgang">
+                금촌고, 문산제일고, 파주고 등 관내 중·고교 내신 출제 경향을 꿰뚫는 맞춤 지도. 핵심 키워드를 놓치지 않는 1:1 대면 첨삭으로 만점을 만듭니다.
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-500 font-medium">담당: 중·고등 내신 1등급 / 문법 클리닉</span>
+              <button onclick="scrollToConsultation('국어')" class="text-rose-600 font-extrabold hover:underline">상담 예약</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Korean 3-Step Course Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+          <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-extrabold text-rose-600 uppercase mb-1">Step 01. 기본 체화</div>
+              <h4 class="text-base font-bold text-slate-900 mb-2" data-key="korC1Title">중등 어휘력 & 필수 문학 갈래</h4>
+              <p class="text-xs text-slate-600 leading-relaxed" data-key="korC1Desc">
+                문해력의 뼈대가 되는 한자어 어휘 훈련 및 교과서 수록 필수 현대시/고전문학 독해 공식을 체계화합니다.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-200 text-xs text-slate-500 space-y-1 mt-4">
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-600"></i> 매주 데일리 어휘 50문항 점검</div>
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-600"></i> 문단 핵심 문장 요약 노트 검사</div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border-2 border-rose-500 p-5 shadow-sm flex flex-col justify-between relative">
+            <span class="absolute -top-3 right-4 bg-rose-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full shadow">내신 집중 코스</span>
+            <div>
+              <div class="text-[11px] font-extrabold text-rose-600 uppercase mb-1">Step 02. 실전 내신</div>
+              <h4 class="text-base font-bold text-slate-900 mb-2" data-key="korC2Title">문법 총정리 & 서술형 감점 0점</h4>
+              <p class="text-xs text-slate-600 leading-relaxed" data-key="korC2Desc">
+                음운의 변동부터 중세국어까지 까다로운 문법을 완벽 정리하고 학교별 부교재 지문 변형을 3회독 훈련합니다.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 text-xs text-slate-500 space-y-1 mt-4">
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-600"></i> 금촌 관내 학교 5개년 기출 변형</div>
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-600"></i> 조건 충족 서술형 1:1 대면 첨삭</div>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-extrabold text-rose-600 uppercase mb-1">Step 03. 수능 킬러</div>
+              <h4 class="text-base font-bold text-slate-900 mb-2" data-key="korC3Title">비문학 독서 메커니즘 & EBS 연계</h4>
+              <p class="text-xs text-slate-600 leading-relaxed" data-key="korC3Desc">
+                고난도 비문학(기술/경제/철학) 지문의 도식화 독해 훈련과 평가원 기출 및 EBS 변형 문항을 완벽 체화합니다.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-200 text-xs text-slate-500 space-y-1 mt-4">
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-600"></i> 평가원 10개년 기출 코드 분석</div>
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-rose-600"></i> 주 1회 실전 모의고사 타임어택</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================== DEPARTMENT 4: SCIENCE (과학) ==================== -->
+      <div id="subject-tab-science" class="subject-panel hidden space-y-8">
+        
+        <div class="border-b border-slate-100 pb-3 flex items-center justify-between">
+          <div>
+            <h3 class="text-lg sm:text-xl font-black text-slate-900 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span> 과학교과 챕터별 전문 강사진 라인업
+            </h3>
+            <p class="text-xs text-slate-500 mt-0.5">고1 통합과학 내신 만점과 수능 과학탐구 킬러 정복의 원스톱 로드맵</p>
+          </div>
+          <button onclick="scrollToConsultation('과학')" class="text-xs font-bold text-purple-600 hover:text-purple-700 hidden sm:inline-flex items-center gap-1">
+            과학 상담 신청 <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+
+        <!-- 1 Science Instructor Centered Card -->
+        <div class="max-w-xl mx-auto">
+          <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-card-float transition-all p-6 flex flex-col justify-between group">
+            <div>
+              <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-slate-900 mb-5 shadow-inner">
+                <img id="teacherImg-sci-gwajoon" 
+                     src="./images/sci-gwajoon.png" 
+                     alt="과학 과준T" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x500/0f172a/ffffff?text=과학+과준T';" 
+                     class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-4">
+                  <span class="text-xs font-extrabold px-2.5 py-1 rounded bg-purple-600/90 text-white backdrop-blur-sm">
+                    통합과학 1등급 & 과탐 킬러
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="text-xl font-black text-slate-900" data-key="teacherName-sci-gwajoon">과학 과준 T</h4>
+                <button onclick="changeTeacherPhoto('sci-gwajoon')" class="text-xs font-bold text-slate-400 hover:text-brand-600 flex items-center gap-1">
+                  <i data-lucide="camera" class="w-3.5 h-3.5"></i> 사진변경
+                </button>
+              </div>
+
+              <p class="text-xs sm:text-sm font-bold text-purple-600 mb-2.5" data-key="teacherRole-sci-gwajoon">
+                통합과학 1등급 완성 & 수능 과학탐구 킬러 특강
+              </p>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4" data-key="teacherBio-sci-gwajoon">
+                물리 역학적 시스템과 화학 양적관계·중화반응 등 오답률 높은 계산 킬러 단원을 명쾌한 도식과 공식으로 완벽히 정복합니다. 수행평가와 탐구 보고서까지 철저히 가이드합니다.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm">
+              <span class="text-slate-500 font-medium">담당: 중3 예비고1 / 고1 통합과학 / 수능 탐구</span>
+              <button onclick="scrollToConsultation('과학')" class="text-purple-600 font-extrabold hover:underline">상담 예약</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Science 3-Step Course Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+          <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-extrabold text-purple-600 uppercase mb-1">Step 01. 개념 구조화</div>
+              <h4 class="text-base font-bold text-slate-900 mb-2" data-key="sciC1Title">중등 과학 전과정 총정리</h4>
+              <p class="text-xs text-slate-600 leading-relaxed" data-key="sciC1Desc">
+                물리·화학·생명·지구과학의 필수 용어와 교과서 탐구 실험 과정을 도식화하여 완벽히 이해시킵니다.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-200 text-xs text-slate-500 space-y-1 mt-4">
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-600"></i> 단원별 백지 개념도 완성 훈련</div>
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-600"></i> 학교 지필 및 수행평가 철저 대비</div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border-2 border-purple-500 p-5 shadow-sm flex flex-col justify-between relative">
+            <span class="absolute -top-3 right-4 bg-purple-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full shadow">고1 필수 코스</span>
+            <div>
+              <div class="text-[11px] font-extrabold text-purple-600 uppercase mb-1">Step 02. 통합과학 킬러</div>
+              <h4 class="text-base font-bold text-slate-900 mb-2" data-key="sciC2Title">통합과학 내신 1등급 프로젝트</h4>
+              <p class="text-xs text-slate-600 leading-relaxed" data-key="sciC2Desc">
+                역학적 시스템(물리)과 중화반응·산화환원(화학)의 복잡한 계산 문항을 쉽게 풀어내는 풀이 공식 훈련.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 text-xs text-slate-500 space-y-1 mt-4">
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-600"></i> 금촌 관내 고교 기출 변형 3회독</div>
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-600"></i> 복합 그래프 해석 스킬 집중 클리닉</div>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-extrabold text-purple-600 uppercase mb-1">Step 03. 과탐I·II 수능</div>
+              <h4 class="text-base font-bold text-slate-900 mb-2" data-key="sciC3Title">물리I / 화학I / 생명I / 지학I</h4>
+              <p class="text-xs text-slate-600 leading-relaxed" data-key="sciC3Desc">
+                유전 가계도, 양적 계산, 역학적 에너지 보존 등 수능 1등급을 결정하는 킬러 단원 집중 훈련.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-200 text-xs text-slate-500 space-y-1 mt-4">
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-600"></i> 평가원 7개년 기출 코드 분해</div>
+              <div class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-600"></i> 1:1 맞춤 질의응답 및 개별 클리닉</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Learning Action Section -->
+  <section id="media-showcase" class="py-14 sm:py-20 bg-slate-900 text-white relative overflow-hidden">
+    <div class="absolute -top-32 -left-32 w-80 h-80 bg-brand-600/20 rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-emerald-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <div class="lg:col-span-5 space-y-4 sm:space-y-6">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-600/30 border border-brand-500/50 text-blue-300 text-xs font-bold">
+            <i data-lucide="video" class="w-3.5 h-3.5"></i> 열린학원 학습 현장
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
+            스스로 깨우칠 때까지,<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">집요한 1:1 질문과 피드백</span>
+          </h2>
+          <p class="text-slate-300 text-xs sm:text-base leading-relaxed">
+            눈치 보지 않고 마음껏 질문할 수 있는 환경이 성적 향상의 첫걸음입니다. 열린학원 금촌점은 학생 한 명 한 명의 풀이 과정을 세밀히 들여다보며 스스로 해낼 때까지 함께합니다.
+          </p>
+
+          <div class="grid grid-cols-2 gap-3 sm:gap-4 pt-1">
+            <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+              <div class="text-xl sm:text-2xl font-black text-blue-400">4.9 / 5.0</div>
+              <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5 font-semibold">학부모 만족도 & 추천율</div>
+            </div>
+            <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+              <div class="text-xl sm:text-2xl font-black text-emerald-400">100%</div>
+              <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5 font-semibold">당일 과제 & 오답 점검 완료</div>
+            </div>
+          </div>
+
+          <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <button onclick="scrollToConsultation()" class="px-5 py-3 sm:py-3.5 bg-brand-600 hover:bg-brand-500 text-white rounded-xl text-xs sm:text-sm font-black shadow-lg shadow-brand-600/40 transition-all flex items-center justify-center gap-2">
+              <i data-lucide="calendar" class="w-4 h-4"></i>
+              <span>수업 참관 & 상담 신청</span>
+            </button>
+            <a href="tel:031-943-3229" class="px-4 py-3 sm:py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all">
+              <i data-lucide="phone-call" class="w-4 h-4 text-emerald-400"></i>
+              <span>031-943-3229</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 bg-slate-950 shadow-2xl group aspect-[16/10] sm:aspect-video">
+            <video id="classAtmosphereVideo" autoplay muted loop playsinline class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700">
+              <source src="https://assets.mixkit.co/videos/preview/mixkit-group-of-students-studying-in-a-classroom-42998-large.mp4" type="video/mp4">
+              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="수업 현장" class="w-full h-full object-cover">
+            </video>
+
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex flex-col justify-between p-4 sm:p-6">
+              <div class="flex justify-between items-center">
+                <span class="px-2.5 py-1 bg-black/60 backdrop-blur-md rounded-full text-[10px] sm:text-xs font-bold text-white border border-white/20 flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  열린학원 1:1 클리닉 룸
+                </span>
+                <button onclick="toggleVideoSound()" id="soundToggleBtn" class="p-2 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md text-white border border-white/20 transition-all">
+                  <i data-lucide="volume-x" class="w-3.5 h-3.5 sm:w-4 sm:h-4" id="soundIcon"></i>
+                </button>
+              </div>
+
+              <div class="space-y-1">
+                <div class="text-[11px] font-bold text-blue-400">실시간 맞춤 피드백 진행 중</div>
+                <div class="text-sm sm:text-base font-black text-white">"모를 땐 그 자리에서 바로 해결하는 1:1 질의응답 시스템"</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Major Care Systems -->
+  <section id="care-system" class="py-14 sm:py-20 bg-[#f8faff] border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <span class="text-brand-600 text-xs sm:text-sm font-extrabold tracking-widest uppercase block mb-1.5">System of Excellence</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight" data-key="careHeading">
+          성적이 오를 수밖에 없는 열린학원 4대 밀착 케어
+        </h2>
+        <p class="mt-2 text-slate-600 text-xs sm:text-base" data-key="careSub">
+          단순한 진도 빼기가 아닌 학생의 취약점을 완전히 뿌리뽑을 때까지 지도합니다.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-card-float transition-all">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-brand-600 flex items-center justify-center mb-4">
+            <i data-lucide="target" class="w-5 h-5"></i>
+          </div>
+          <div class="text-[11px] font-black text-brand-600 mb-1">CARE 01</div>
+          <h3 class="text-base font-bold text-slate-900 mb-1.5" data-key="care1Title">1:1 정밀 레벨 진단</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-key="care1Desc">
+            입학 전 40분간의 정밀 진단평가로 단원별 결손 지점을 파악하여 맞춤형 커리큘럼을 설계합니다.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-card-float transition-all">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
+            <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+          </div>
+          <div class="text-[11px] font-black text-emerald-600 mb-1">CARE 02</div>
+          <h3 class="text-base font-bold text-slate-900 mb-1.5" data-key="care2Title">오답 3단계 무한 피드백</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-key="care2Desc">
+            틀린 문제 원본 교정 → 쌍둥이 유사 문제 → 심화 변형 훈련을 통과할 때까지 무한 반복합니다.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-card-float transition-all">
+          <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4">
+            <i data-lucide="smartphone" class="w-5 h-5"></i>
+          </div>
+          <div class="text-[11px] font-black text-indigo-600 mb-1">CARE 03</div>
+          <h3 class="text-base font-bold text-slate-900 mb-1.5" data-key="care3Title">주간 학부모 알림 리포트</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-key="care3Desc">
+            일일 출결, 주간 테스트 점수, 과제 완성도 및 선생님의 피드백 코멘트를 학부모님 모바일로 매주 전송합니다.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-card-float transition-all">
+          <div class="w-10 h-10 rounded-xl bg-rose-50 text-brand-magenta flex items-center justify-center mb-4">
+            <i data-lucide="clock" class="w-5 h-5"></i>
+          </div>
+          <div class="text-[11px] font-black text-brand-magenta mb-1">CARE 04</div>
+          <h3 class="text-base font-bold text-slate-900 mb-1.5" data-key="care4Title">주말 밀착 1:1 보강</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-key="care4Desc">
+            주중 수업 중 미흡했던 개념이나 과제를 주말 전담 강사진과 1:1로 해결하는 의무 보강 클리닉입니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facility Gallery -->
+  <section id="facility-section" class="py-14 sm:py-20 bg-white border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        <span class="text-brand-600 text-xs sm:text-sm font-extrabold tracking-widest uppercase block mb-1.5">Learning Environment</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+          몰입과 성장을 위한 프리미엄 학습 공간
+        </h2>
+        <p class="mt-2 text-slate-600 text-xs sm:text-base">
+          최신식 환기 시스템, 1:1 맞춤 피드백 부스, 집중 자습 전용 스터디존을 완비하고 있습니다.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        <div class="group rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all">
+          <div class="h-52 sm:h-60 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" alt="1:1 개별 클리닉실" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-4 sm:p-5 bg-white">
+            <span class="text-[11px] font-black text-brand-600 block mb-1">FACILITY 01</span>
+            <h4 class="text-base font-bold text-slate-900 mb-1">1:1 개별 클리닉 & 오답 집중실</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">눈치 보지 않고 오직 학생과 선생님이 질의응답에 몰입할 수 있는 전용 부스입니다.</p>
+          </div>
+        </div>
+
+        <div class="group rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all">
+          <div class="h-52 sm:h-60 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop" alt="정규 강의실" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-4 sm:p-5 bg-white">
+            <span class="text-[11px] font-black text-emerald-600 block mb-1">FACILITY 02</span>
+            <h4 class="text-base font-bold text-slate-900 mb-1">소수정예 스마트 인터랙티브 강의실</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">대형 판서 스크린과 넓은 독립 책상으로 개념 전달력을 극대화한 강의 공간입니다.</p>
+          </div>
+        </div>
+
+        <div class="group rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all">
+          <div class="h-52 sm:h-60 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1568667256549-094345857637?q=80&w=800&auto=format&fit=crop" alt="자기주도 몰입 학습존" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-4 sm:p-5 bg-white">
+            <span class="text-[11px] font-black text-purple-600 block mb-1">FACILITY 03</span>
+            <h4 class="text-base font-bold text-slate-900 mb-1">재원생 전용 자기주도 자습존</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">수업 전후 자율적으로 과제를 수행하고 실시간 질문 조교가 상주하는 자습실을 무료 지원합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews & Results Section -->
+  <section id="results-section" class="py-14 sm:py-20 bg-[#f8faff] border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <span class="text-brand-600 text-xs sm:text-sm font-extrabold tracking-widest uppercase block mb-1.5">Proven Results</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight" data-key="resultsHeading">
+          열린학원 금촌점 성적 향상 및 합격 사례
+        </h2>
+        <p class="mt-2 text-slate-600 text-xs sm:text-base" data-key="resultsSub">
+          올바른 학습 시스템과 밀착 지도가 함께할 때 일어나는 확실한 변화입니다.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        <div class="bg-white p-5 sm:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all relative">
+          <span class="absolute top-4 right-4 bg-rose-100 text-rose-700 text-[11px] font-black px-2.5 py-0.5 rounded-full">
+            수학 4등급 → 1등급 도약
+          </span>
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 mb-3">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-6 font-medium" data-key="rev1Text">
+              "수학과 과학이 항상 50점대라 막막했는데, 열린학원에서 오답 쌍둥이 문제를 반복하고 질문을 편하게 받아주신 덕분에 이번 기말고사에서 수학 92점, 과학 96점을 받았습니다!"
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-slate-100">
+            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=120&auto=format&fit=crop" class="w-10 h-10 rounded-full object-cover ring-2 ring-blue-100">
+            <div>
+              <div class="text-xs sm:text-sm font-bold text-slate-900" data-key="rev1Author">이○훈 학생 (금촌고 2)</div>
+              <div class="text-[11px] text-brand-600 font-semibold">내신 종합 1.2등급 달성</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 sm:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all relative">
+          <span class="absolute top-4 right-4 bg-emerald-100 text-emerald-700 text-[11px] font-black px-2.5 py-0.5 rounded-full">
+            고려대학교 정시 합격
+          </span>
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 mb-3">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-6 font-medium" data-key="rev2Text">
+              "국어 비문학 읽는 속도가 너무 느려 고민이었는데, 문단 분석법과 어휘 정리를 꾸준히 훈련받아 모의고사 1등급을 지키고 고려대학교에 당당히 합격했습니다!"
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-slate-100">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop" class="w-10 h-10 rounded-full object-cover ring-2 ring-emerald-100">
+            <div>
+              <div class="text-xs sm:text-sm font-bold text-slate-900" data-key="rev2Author">박○준 졸업생</div>
+              <div class="text-[11px] text-emerald-600 font-semibold">수능 국·영·수 올 1등급</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 sm:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition-all relative">
+          <span class="absolute top-4 right-4 bg-purple-100 text-purple-700 text-[11px] font-black px-2.5 py-0.5 rounded-full">
+            전교 3등 석차 도약
+          </span>
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 mb-3">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-6 font-medium" data-key="rev3Text">
+              "학부모 입장에서 아이의 학원 출결과 주간 시험 결과를 매주 리포트 문자로 꼼꼼히 확인시켜 주셔서 안심이 됩니다. 선생님들의 정성이 남다른 학원입니다."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-slate-100">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=120&auto=format&fit=crop" class="w-10 h-10 rounded-full object-cover ring-2 ring-purple-100">
+            <div>
+              <div class="text-xs sm:text-sm font-bold text-slate-900" data-key="rev3Author">문산중 3학년 학부모님</div>
+              <div class="text-[11px] text-purple-600 font-semibold">종합반 수강 1년 차</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location & Consultation Section -->
+  <section id="location-section" class="py-14 sm:py-20 bg-white border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        
+        <!-- Left: Academy Info (5 cols) -->
+        <div class="lg:col-span-5 space-y-5">
+          <span class="text-brand-600 text-xs sm:text-sm font-extrabold tracking-widest uppercase block">Visit & Consult</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight" data-key="locationHeading">
+            열린학원 금촌점 오시는 길
+          </h2>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed" data-key="locationSub">
+            1996년부터 파주 금촌 학생들의 꿈과 함께해 온 든든한 입시 파트너입니다. 언제든 편안히 방문 상담해 주세요.
+          </p>
+
+          <div class="space-y-3.5 pt-2">
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 rounded-xl bg-blue-50 text-brand-600 flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-semibold text-slate-400 block">학원 주소</span>
+                <p class="text-xs sm:text-sm font-bold text-slate-900" data-key="academyAddress">경기도 파주시 금촌동 중심가 (금촌역/금릉역 인근 학원가)</p>
+                <p class="text-[11px] text-slate-500 mt-0.5" data-key="academySubAddress">(건물 내 주차 가능 / 대중교통 이용 편리)</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="phone-call" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-semibold text-slate-400 block">상담 및 등록 문의</span>
+                <a href="tel:031-943-3229" class="text-xl sm:text-2xl font-black text-brand-600 hover:text-blue-700 transition-colors" data-key="academyPhone">031-943-3229</a>
+                <p class="text-[11px] text-slate-500 mt-0.5">평일 13:00 - 22:30 / 토요일 10:00 - 18:00</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 rounded-xl bg-blue-50 text-brand-600 flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="bus" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-semibold text-slate-400 block">대중교통 안내</span>
+                <p class="text-xs text-slate-600 mt-0.5" data-key="academyTransit">경의중앙선 금촌역/금릉역 도보 및 주요 시내버스 정류장 바로 앞</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fast Map Launch Buttons -->
+          <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50 space-y-2.5">
+            <div class="flex items-center gap-1.5 text-slate-700 font-bold text-xs">
+              <i data-lucide="navigation" class="w-3.5 h-3.5 text-brand-600"></i>
+              <span>스마트폰 지도 앱으로 빠른 길찾기</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <a href="https://map.naver.com" target="_blank" rel="noopener" class="py-2 px-3 rounded-xl bg-[#03C75A] text-white text-xs font-bold hover:brightness-105 transition-all flex items-center justify-center gap-1 shadow-sm">
+                <span>네이버 지도</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+              <a href="https://map.kakao.com" target="_blank" rel="noopener" class="py-2 px-3 rounded-xl bg-[#FEE500] text-slate-900 text-xs font-bold hover:brightness-95 transition-all flex items-center justify-center gap-1 shadow-sm">
+                <span>카카오맵</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Mobile-Optimized Consultation Booking Form (7 cols) -->
+        <div class="lg:col-span-7 bg-slate-50 p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-sm" id="consultation-box">
+          <div class="mb-5 sm:mb-6">
+            <div class="inline-flex items-center gap-1 text-[11px] font-extrabold text-brand-600 uppercase mb-1">
+              <i data-lucide="clipboard-check" class="w-3.5 h-3.5"></i> Quick Consultation
+            </div>
+            <h3 class="text-lg sm:text-2xl font-black text-slate-900">무료 레벨테스트 & 1:1 방문 상담 신청</h3>
+            <p class="text-xs text-slate-500 mt-1">학생 정보를 남겨주시면 담당 선생님께서 24시간 내 친절히 안내해 드립니다.</p>
+          </div>
+
+          <form id="consultForm" onsubmit="handleConsultationSubmit(event)" class="space-y-3.5 sm:space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">학부모 또는 학생 성함 <span class="text-rose-500">*</span></label>
+                <input type="text" id="consultName" required placeholder="예: 김민준" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-600 text-xs sm:text-sm bg-white" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">연락처 <span class="text-rose-500">*</span></label>
+                <input type="tel" id="consultPhone" required placeholder="예: 010-1234-5678" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-600 text-xs sm:text-sm bg-white" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">학생 학년 <span class="text-rose-500">*</span></label>
+                <select id="consultGrade" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-600 text-xs sm:text-sm bg-white">
+                  <option value="">학년을 선택하세요</option>
+                  <option value="초등 5~6학년">초등 5~6학년 (중등 선행)</option>
+                  <option value="중학교 1학년">중학교 1학년</option>
+                  <option value="중학교 2학년">중학교 2학년</option>
+                  <option value="중학교 3학년">중학교 3학년</option>
+                  <option value="고등학교 1학년">고등학교 1학년</option>
+                  <option value="고등학교 2학년">고등학교 2학년</option>
+                  <option value="고등학교 3학년/N수">고등학교 3학년 / N수</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">상담 희망 시간대</label>
+                <select id="consultTime" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-600 text-xs sm:text-sm bg-white">
+                  <option value="평일 오후 (14:00 - 17:00)">평일 오후 (14:00 - 17:00)</option>
+                  <option value="평일 저녁 (17:00 - 21:00)">평일 저녁 (17:00 - 21:00)</option>
+                  <option value="토요일 오전 (10:00 - 13:00)">토요일 오전 (10:00 - 13:00)</option>
+                  <option value="토요일 오후 (13:00 - 18:00)">토요일 오후 (13:00 - 18:00)</option>
+                  <option value="시간 무관 / 빠른 연락 희망">시간 무관 / 빠른 연락 희망</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Subject Multi-select -->
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1.5">관심 과목 선택 (중복 가능) <span class="text-rose-500">*</span></label>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-brand-500 transition-colors">
+                  <input type="checkbox" name="consultSubjects" value="국어" class="rounded text-brand-600 focus:ring-brand-500 w-3.5 h-3.5" />
+                  <span class="text-xs font-bold text-slate-800">국어 (KOR)</span>
+                </label>
+                <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-brand-500 transition-colors">
+                  <input type="checkbox" name="consultSubjects" value="영어" class="rounded text-brand-600 focus:ring-brand-500 w-3.5 h-3.5" />
+                  <span class="text-xs font-bold text-slate-800">영어 (ENG)</span>
+                </label>
+                <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-brand-500 transition-colors">
+                  <input type="checkbox" name="consultSubjects" value="수학" checked class="rounded text-brand-600 focus:ring-brand-500 w-3.5 h-3.5" />
+                  <span class="text-xs font-bold text-slate-800">수학 (MATH)</span>
+                </label>
+                <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-brand-500 transition-colors">
+                  <input type="checkbox" name="consultSubjects" value="과학" class="rounded text-brand-600 focus:ring-brand-500 w-3.5 h-3.5" />
+                  <span class="text-xs font-bold text-slate-800">과학 (SCI)</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">학습 고민 및 문의 사항</label>
+              <textarea id="consultMemo" rows="2" placeholder="예: 고1 수학 내신 3등급에서 1등급으로 도약하고 싶습니다." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-600 text-xs sm:text-sm bg-white"></textarea>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <input type="checkbox" id="privacyConsent" required class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4" />
+              <label for="privacyConsent" class="text-xs text-slate-600 select-none">개인정보 수집 및 상담 전화/문자 발송에 동의합니다.</label>
+            </div>
+
+            <button type="submit" class="w-full py-3.5 sm:py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-black text-xs sm:text-base shadow-lg shadow-brand-600/25 transition-all flex items-center justify-center gap-2">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>상담 및 무료 진단평가 신청</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-10 sm:py-14 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-6 border-b border-slate-800">
+        <div>
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="text-lg sm:text-xl font-black text-white" data-key="footerBrand">열린학원 금촌점</span>
+            <span class="bg-blue-900/60 text-blue-300 text-[10px] font-bold px-2 py-0.5 rounded">SINCE 1996</span>
+          </div>
+          <p class="text-slate-400 text-xs max-w-lg leading-relaxed">
+            파주 금촌 지역 1위 입시 명문! 국어·영어·수학·과학 8인 전문 강사진의 챕터별 책임 지도와 검증된 입시 전략으로 학생의 미래를 활짝 엽니다.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="tel:031-943-3229" class="px-3.5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow">
+            <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+            <span>031-943-3229</span>
+          </a>
+          <button onclick="toggleAdminAccess()" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold border border-slate-700 flex items-center gap-1.5 transition-colors">
+            <i data-lucide="settings" class="w-3.5 h-3.5 text-blue-400"></i>
+            <span>관리자 모드</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-slate-500 text-[11px]">
+        <div>
+          <span>열린학원 금촌점</span> | <span>대표상담: <strong class="text-slate-300">031-943-3229</strong></span> | <span>경기도 파주시 금촌동 중심가</span>
+        </div>
+        <div>
+          © 1996-2026 열린학원 금촌점. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Dedicated Mobile Sticky Bottom CTA Dock (Mobile-First) -->
+  <div class="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-dock-mobile px-3 py-2 flex items-center gap-2">
+    <a href="tel:031-943-3229" class="flex-1 py-2.5 bg-blue-50 hover:bg-blue-100 text-brand-600 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 border border-blue-200 transition-all">
+      <i data-lucide="phone" class="w-4 h-4"></i>
+      <span>전화 031-943-3229</span>
+    </a>
+    <button onclick="scrollToConsultation()" class="flex-1 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-xs font-black shadow-md shadow-brand-600/30 flex items-center justify-center gap-1.5 transition-all">
+      <i data-lucide="calendar-check" class="w-4 h-4"></i>
+      <span>1:1 상담 신청</span>
+    </button>
+  </div>
+
+  <!-- Floating Admin Controller Dock -->
+  <div id="adminDock" class="fixed bottom-16 sm:bottom-6 right-4 sm:right-6 z-50 hidden">
+    <div class="bg-slate-900/95 backdrop-blur-md text-white p-4 sm:p-5 rounded-2xl shadow-2xl border border-blue-500/50 flex flex-col gap-2.5 min-w-[280px] sm:min-w-[310px]">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+          <span class="font-black text-xs text-blue-200">열린학원 실시간 관리자 모드</span>
+        </div>
+        <button onclick="exitAdminMode()" class="text-slate-400 hover:text-white p-1">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <p class="text-[11px] text-slate-300 leading-tight">
+        점선 박스로 표시된 문구를 클릭하여 직접 수정하고 아래 '저장'을 누르면 즉시 보존됩니다.
+      </p>
+
+      <div class="grid grid-cols-2 gap-2 pt-1">
+        <button onclick="saveAllEdits()" class="w-full py-2 bg-brand-600 hover:bg-blue-600 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 shadow">
+          <i data-lucide="save" class="w-3.5 h-3.5"></i> 수정 저장
+        </button>
+        <button onclick="openInquiriesModal()" class="w-full py-2 bg-slate-800 hover:bg-slate-700 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 border border-slate-700">
+          <i data-lucide="inbox" class="w-3.5 h-3.5 text-emerald-400"></i> 상담함 (<span id="inquiryCountBadge">0</span>)
+        </button>
+      </div>
+
+      <div class="pt-2 border-t border-slate-800 grid grid-cols-3 gap-1.5 text-center">
+        <button onclick="triggerLogoUpload()" class="py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg text-[11px] font-semibold text-slate-200 flex items-center justify-center gap-1">
+          <i data-lucide="image" class="w-3 h-3 text-cyan-400"></i> 로고교체
+        </button>
+        <button onclick="exportSiteConfig()" class="py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg text-[11px] font-semibold text-slate-200 flex items-center justify-center gap-1">
+          <i data-lucide="download" class="w-3 h-3 text-amber-400"></i> JSON백업
+        </button>
+        <button onclick="importSiteConfig()" class="py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg text-[11px] font-semibold text-slate-200 flex items-center justify-center gap-1">
+          <i data-lucide="upload" class="w-3 h-3 text-purple-400"></i> 불러오기
+        </button>
+      </div>
+
+      <div class="flex items-center justify-between pt-1 text-[11px] text-slate-400">
+        <button onclick="resetDefaults()" class="hover:text-rose-400 underline">기본값 복원</button>
+        <button onclick="changeAdminPasswordPrompt()" class="hover:text-blue-300">비밀번호 변경</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden File Inputs -->
+  <input type="file" id="logoFileInput" accept="image/*" class="hidden" onchange="handleLogoUpload(event)" />
+  <input type="file" id="teacherFileInput" accept="image/*" class="hidden" onchange="handleTeacherPhotoUpload(event)" />
+
+  <!-- Admin Password Verification Modal -->
+  <div id="passwordModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-full p-6 space-y-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-blue-50 text-brand-600 flex items-center justify-center">
+          <i data-lucide="lock" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-black text-slate-900">관리자 인증</h3>
+          <p class="text-xs text-slate-500">기본 비밀번호: 1234</p>
+        </div>
+      </div>
+      <div>
+        <input type="password" id="adminPasswordInput" placeholder="비밀번호 입력" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-600 text-sm font-semibold" onkeyup="if(event.key==='Enter') verifyAdminPassword()" />
+      </div>
+      <div class="flex gap-2">
+        <button onclick="closePasswordModal()" class="flex-1 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50">취소</button>
+        <button onclick="verifyAdminPassword()" class="flex-1 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inquiries Lead Modal -->
+  <div id="inquiriesModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[85vh] flex flex-col overflow-hidden">
+      <div class="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+        <div>
+          <h3 class="font-extrabold text-base text-slate-900 flex items-center gap-2">
+            <i data-lucide="inbox" class="w-5 h-5 text-brand-600"></i>
+            상담 및 무료 진단 접수 목록
+          </h3>
+          <p class="text-xs text-slate-500 mt-0.5">열린학원 금촌점에서 접수된 문의 내역입니다.</p>
+        </div>
+        <button onclick="closeInquiriesModal()" class="text-slate-400 hover:text-slate-700 p-1">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-4 sm:p-6 overflow-y-auto flex-1 space-y-3" id="inquiriesListContainer">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <div class="p-4 border-t border-slate-100 bg-slate-50 flex items-center justify-between flex-wrap gap-2">
+        <div class="flex items-center gap-3">
+          <button onclick="exportInquiriesCSV()" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm">
+            <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> 엑셀(CSV) 다운로드
+          </button>
+          <button onclick="clearAllInquiries()" class="text-xs text-rose-600 font-semibold hover:underline">
+            전체 내역 삭제
+          </button>
+        </div>
+        <button onclick="closeInquiriesModal()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 rounded-xl text-xs font-bold text-slate-700">
+          닫기
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="fixed top-5 right-5 z-50 transform translate-y-[-140%] opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-900 text-white shadow-xl text-xs sm:text-sm font-semibold border border-slate-700">
+      <i id="toastIcon" data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+      <span id="toastMessage">안내 메시지</span>
+    </div>
+  </div>
+
+  <script>
+    const DEFAULT_DATA = {
+      bannerText: "파주 금촌 1위 국·영·수·과 1:1 맞춤 정규반 모집 중 (선착순 마감)",
+      brandTitle: "열린학원",
+      branchName: "금촌점",
+      footerBrand: "열린학원 금촌점",
+      heroBadge: "SINCE 1996 · 파주 금촌 30년 전통 1:1 맞춤 입시",
+      heroTitleLine1: "성적의 한계를 넘어,",
+      heroTitleHighlight: "배움의 가능성을 엽니다",
+      heroSubtitle: "단순한 점수 상승을 넘어 스스로 몰입하는 공부의 기준을 완성합니다. 국어·영어·수학·과학 전문 강사진의 1:1 오답 클리닉과 철저한 주간 리포트로 금촌 학생들의 잠재력을 확실한 실력으로 입증합니다.",
+      stat1: "30년",
+      stat1Label: "금촌 지역 명문 입시 전통",
+      stat2: "97.8%",
+      stat2Label: "재원생 성적 향상 및 유지",
+      stat3: "8인 전문팀",
+      stat3Label: "국·영·수·과 챕터별 강사진",
+      stat4: "1:1 맞춤",
+      stat4Label: "취약 유형 3단계 무한 클리닉",
+      subjectHeading: "국어·영어·수학·과학 4대 학과 & 전문 강사진",
+      subjectSub: "각 영역별 전담 강사진의 챕터별 전문 지도와 단계별 학습 로드맵으로 흔들리지 않는 최상위권을 완성합니다.",
+
+      // Math Instructors
+      "teacherName-math-sooseon": "수학 수선 T",
+      "teacherRole-math-sooseon": "고등 기출 유형 분석 & 실전 킬러 마스터",
+      "teacherBio-math-sooseon": "금촌 관내 고교 7개년 기출 변형 완벽 분석. 수능 14, 15, 21, 22번 고난도 유형의 조건 해석 알고리즘 정립과 시간 단축 풀이법을 전수합니다.",
+      "teacherName-math-sooseok": "수학 수석 T",
+      "teacherRole-math-sooseok": "수능·내신 고난도 클리닉 & 취약점 정밀 피드백",
+      "teacherBio-math-sooseok": "틀린 문제 원본 교정부터 유사 쌍둥이 문항까지 100% 이해할 때까지 무한 반복 피드백. 오답 유사문항 3단계 연계 시스템을 완벽 운영합니다.",
+      "teacherName-math-soosoo": "수학 수수 T",
+      "teacherRole-math-soosoo": "개념 백지 체화 & 1:1 밀착 오답 추적 관리",
+      "teacherBio-math-soosoo": "단순 공식 암기가 아닌 개념 유도 과정 백지 테스트와 1:1 눈높이 맞춤 피드백으로 수학에 대한 두려움을 없애고 성적 반등을 이끌어냅니다.",
+
+      // English Instructors
+      "teacherName-eng-kevin": "영어 케빈 T",
+      "teacherRole-eng-kevin": "수능 절대평가 1등급 & 기출 외부지문 변형 분석",
+      "teacherBio-eng-kevin": "EBS 연계 변형 및 고난도 빈칸 추론/순서 배열 킬러 문항 집중 대비. 관내 고교의 까다로운 부교재 외부지문 변형 문항 데이터베이스 완벽 구축.",
+      "teacherName-eng-youngbaek": "영어 영백 T",
+      "teacherRole-eng-youngbaek": "내신 서술형 영작 & 빈틈없는 필수 구문 마스터",
+      "teacherBio-eng-youngbaek": "감점 없는 조건 충족 서술형 영작과 문장 구조 분석의 대가. 학교별 출제 포인트를 정확히 짚어내어 실전 내신 1등급을 완성합니다.",
+      "teacherName-eng-carrie": "영어 캐리 T",
+      "teacherRole-eng-carrie": "데일리 어휘 체화 & 중·고등 기본/실전 완성",
+      "teacherBio-eng-carrie": "단어 암기와 기본 독해 구문의 튼튼한 뼈대를 완성합니다. 세심한 1:1 피드백과 친근한 코칭으로 학생들의 영어 자신감을 확실하게 회복시킵니다.",
+
+      // Korean Instructors
+      "teacherName-kor-hooni": "국어 후니 T",
+      "teacherRole-kor-hooni": "수능 국어 비문학 독해 메커니즘 & 문해력 완성",
+      "teacherBio-kor-hooni": "고난도 비문학 지문의 도식화 독해법과 평가원 기출 10개년 출제 코드 완벽 분해. 빠르고 정확하게 정답의 근거를 찾는 실전 독해력을 키웁니다.",
+      "teacherName-kor-kookgang": "국어 국강 T",
+      "teacherRole-kor-kookgang": "금촌 관내 학교 기출 분석 & 서술형 감점 제로 첨삭",
+      "teacherBio-kor-kookgang": "금촌고, 문산제일고, 파주고 등 관내 중·고교 내신 출제 경향을 꿰뚫는 맞춤 지도. 핵심 키워드를 놓치지 않는 1:1 대면 첨삭으로 만점을 만듭니다.",
+
+      // Science Instructor
+      "teacherName-sci-gwajoon": "과학 과준 T",
+      "teacherRole-sci-gwajoon": "통합과학 1등급 완성 & 수능 과학탐구 킬러 특강",
+      "teacherBio-sci-gwajoon": "물리 역학적 시스템과 화학 양적관계·중화반응 등 오답률 높은 계산 킬러 단원을 명쾌한 도식과 공식으로 완벽히 정복합니다. 수행평가와 탐구 보고서까지 철저히 가이드합니다.",
+
+      // Curriculum Step Keys
+      mathC1Title: "개념 백지 테스트 & 연산력",
+      mathC1Desc: "단순 공식 암기를 배제하고 원리 유도 과정 백지 테스트를 통해 개념 결손 지점을 완전히 보강합니다.",
+      mathC2Title: "오답 쌍둥이 & 기출 심화",
+      mathC2Desc: "틀린 문제 원본 → 유사 쌍둥이 문제 → 고난도 심화 변형까지 100% 이해할 때까지 무한 반복 피드백합니다.",
+      mathC3Title: "미적분/기하/확통 준킬러·킬러",
+      mathC3Desc: "수능 14, 15, 21, 22번 고난도 유형의 조건 해석 알고리즘 정립과 시간 단축 풀이법을 전수합니다.",
+
+      engC1Title: "필수 어법 뼈대 & 끊어읽기",
+      engC1Desc: "관계사, 분사구문, 가정법 등 핵심 문법 규칙을 단순 암기가 아닌 직독직해 구문에 즉각 적용하도록 훈련합니다.",
+      engC2Title: "외부지문 변형 & 조건부 영작",
+      engC2Desc: "학교별 부교재 및 모의고사 지문 변형 문제를 완벽 대비하고 감점 없는 조건 충족 서술형 영작 훈련을 진행합니다.",
+      engC3Title: "논리독해 & 빈칸/순서 킬러",
+      engC3Desc: "글의 전개 원리(대조/인과/재진술)를 바탕으로 매력적인 오답 선지를 제거하는 수능 1등급 킬러 유형 정복 훈련.",
+
+      korC1Title: "중등 어휘력 & 필수 문학 갈래",
+      korC1Desc: "문해력의 뼈대가 되는 한자어 어휘 훈련 및 교과서 수록 필수 현대시/고전문학 독해 공식을 체계화합니다.",
+      korC2Title: "문법 총정리 & 서술형 감점 0점",
+      korC2Desc: "음운의 변동부터 중세국어까지 까다로운 문법을 완벽 정리하고 학교별 부교재 지문 변형을 3회독 훈련합니다.",
+      korC3Title: "비문학 독서 메커니즘 & EBS 연계",
+      korC3Desc: "고난도 비문학(기술/경제/철학) 지문의 도식화 독해 훈련과 평가원 기출 및 EBS 변형 문항을 완벽 체화합니다.",
+
+      sciC1Title: "중등 과학 전과정 총정리",
+      sciC1Desc: "물리·화학·생명·지구과학의 필수 용어와 교과서 탐구 실험 과정을 도식화하여 완벽히 이해시킵니다.",
+      sciC2Title: "통합과학 내신 1등급 프로젝트",
+      sciC2Desc: "역학적 시스템(물리)과 중화반응·산화환원(화학)의 복잡한 계산 문항을 쉽게 풀어내는 풀이 공식 훈련.",
+      sciC3Title: "물리I / 화학I / 생명I / 지학I",
+      sciC3Desc: "유전 가계도, 양적 계산, 역학적 에너지 보존 등 수능 1등급을 결정하는 킬러 단원 집중 훈련.",
+
+      // Care Systems
+      careHeading: "성적이 오를 수밖에 없는 열린학원 4대 밀착 케어",
+      careSub: "단순한 진도 빼기가 아닌 학생의 취약점을 완전히 뿌리뽑을 때까지 지도합니다.",
+      care1Title: "1:1 정밀 레벨 진단",
+      care1Desc: "입학 전 40분간의 정밀 진단평가로 단원별 결손 지점을 파악하여 맞춤형 커리큘럼을 설계합니다.",
+      care2Title: "오답 3단계 무한 피드백",
+      care2Desc: "틀린 문제 원본 교정 → 쌍둥이 유사 문제 → 심화 변형 훈련을 통과할 때까지 무한 반복합니다.",
+      care3Title: "주간 학부모 알림 리포트",
+      care3Desc: "일일 출결, 주간 테스트 점수, 과제 완성도 및 선생님의 피드백 코멘트를 학부모님 모바일로 매주 전송합니다.",
+      care4Title: "주말 밀착 1:1 보강",
+      care4Desc: "주중 수업 중 미흡했던 개념이나 과제를 주말 전담 강사진과 1:1로 해결하는 의무 보강 클리닉입니다.",
+
+      // Reviews
+      resultsHeading: "열린학원 금촌점 성적 향상 및 합격 사례",
+      resultsSub: "올바른 학습 시스템과 밀착 지도가 함께할 때 일어나는 확실한 변화입니다.",
+      rev1Text: "\"수학과 과학이 항상 50점대라 막막했는데, 열린학원에서 오답 쌍둥이 문제를 반복하고 질문을 편하게 받아주신 덕분에 이번 기말고사에서 수학 92점, 과학 96점을 받았습니다!\"",
+      rev1Author: "이○훈 학생 (금촌고 2)",
+      rev2Text: "\"국어 비문학 읽는 속도가 너무 느려 고민이었는데, 문단 분석법과 어휘 정리를 꾸준히 훈련받아 모의고사 1등급을 지키고 고려대학교에 당당히 합격했습니다!\"",
+      rev2Author: "박○준 졸업생",
+      rev3Text: "\"학부모 입장에서 아이의 학원 출결과 주간 시험 결과를 매주 리포트 문자로 꼼꼼히 확인시켜 주셔서 안심이 됩니다. 선생님들의 정성이 남다른 학원입니다.\"",
+      rev3Author: "문산중 3학년 학부모님",
+
+      // Location
+      locationHeading: "열린학원 금촌점 오시는 길",
+      locationSub: "1996년부터 파주 금촌 학생들의 꿈과 함께해 온 든든한 입시 파트너입니다. 언제든 편안히 방문 상담해 주세요.",
+      academyAddress: "경기도 파주시 금촌동 중심가 (금촌역/금릉역 인근 학원가)",
+      academySubAddress: "(건물 내 주차 가능 / 대중교통 이용 편리)",
+      academyPhone: "031-943-3229",
+      academyTransit: "경의중앙선 금촌역/금릉역 도보 및 주요 시내버스 정류장 바로 앞"
+    };
+
+    let siteData = { ...DEFAULT_DATA };
+    let isAdminUnlocked = false;
+    let targetTeacherKey = null;
+
+    const STORAGE_KEY = 'yeollin_geumchon_data_v4';
+    const INQUIRIES_KEY = 'yeollin_geumchon_inquiries_v4';
+    const PASSWORD_KEY = 'yeollin_admin_pwd';
+
+    // Tone.js Sound FX
+    let synth;
+    function playBeep(note = "C5") {
+      try {
+        if (!synth) {
+          synth = new Tone.Synth({
+            oscillator: { type: "sine" },
+            envelope: { attack: 0.005, decay: 0.1, sustain: 0.01, release: 0.1 }
+          }).toDestination();
+          synth.volume.value = -12;
+        }
+        if (Tone.context.state !== 'running') {
+          Tone.start();
+        }
+        synth.triggerAttackRelease(note, "16n");
+      } catch (e) {}
+    }
+
+    // Toggle Mobile Drawer
+    function toggleMobileDrawer() {
+      const drawer = document.getElementById('mobileDrawer');
+      if (drawer.classList.contains('hidden')) {
+        drawer.classList.remove('hidden');
+      } else {
+        drawer.classList.add('hidden');
+      }
+    }
+
+    // Video Audio Toggle
+    function toggleVideoSound() {
+      const vid = document.getElementById('classAtmosphereVideo');
+      const icon = document.getElementById('soundIcon');
+      if (vid.muted) {
+        vid.muted = false;
+        icon.setAttribute('data-lucide', 'volume-2');
+        showToast("동영상 소리가 켜졌습니다.");
+      } else {
+        vid.muted = true;
+        icon.setAttribute('data-lucide', 'volume-x');
+        showToast("동영상 소리가 음소거되었습니다.");
+      }
+      lucide.createIcons();
+    }
+
+    // DOM Ready
+    document.addEventListener('DOMContentLoaded', () => {
+      loadStoredData();
+      applyDataToDOM();
+      loadCustomImages();
+      updateInquiryBadge();
+      lucide.createIcons();
+    });
+
+    function loadStoredData() {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+          siteData = Object.assign({}, DEFAULT_DATA, JSON.parse(stored));
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    function applyDataToDOM() {
+      const elements = document.querySelectorAll('[data-key]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (siteData[key] !== undefined) {
+          el.innerText = siteData[key];
+        }
+      });
+    }
+
+    // Switch Department Tabs
+    function switchSubjectTab(subject) {
+      playBeep("E5");
+      const tabs = ['math', 'english', 'korean', 'science'];
+      tabs.forEach(tab => {
+        const btn = document.getElementById(`tab-btn-${tab}`);
+        const panel = document.getElementById(`subject-tab-${tab}`);
+        if (tab === subject) {
+          btn.className = "subject-tab-active px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap transition-all flex items-center gap-1.5";
+          panel.classList.remove('hidden');
+        } else {
+          btn.className = "px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5";
+          panel.classList.add('hidden');
+        }
+      });
+      lucide.createIcons();
+    }
+
+    // Scroll to Consultation Form
+    function scrollToConsultation(subjectName = null) {
+      playBeep("G5");
+      const target = document.getElementById('location-section');
+      target.scrollIntoView({ behavior: 'smooth' });
+
+      if (subjectName) {
+        const checkboxes = document.querySelectorAll('input[name="consultSubjects"]');
+        checkboxes.forEach(cb => {
+          if (cb.value === subjectName) cb.checked = true;
+        });
+      }
+      setTimeout(() => {
+        document.getElementById('consultName').focus();
+      }, 550);
+    }
+
+    // Teacher Photo Change Modal / File Trigger
+    function changeTeacherPhoto(teacherKey) {
+      targetTeacherKey = teacherKey;
+      const choice = prompt("선생님 사진을 어떻게 등록하시겠습니까?\n1. 내 컴퓨터 파일 업로드\n2. 이미지 웹 링크(URL) 입력\n(1 또는 2를 입력해주세요):", "1");
+      if (choice === "1") {
+        document.getElementById('teacherFileInput').click();
+      } else if (choice === "2") {
+        const url = prompt("이미지 URL 주소를 입력해주세요:");
+        if (url && url.trim().startsWith("http")) {
+          saveTeacherPhotoUrl(teacherKey, url.trim());
+        } else if (url) {
+          showToast("올바른 이미지 URL을 입력해주세요.");
+        }
+      }
+    }
+
+    function handleTeacherPhotoUpload(event) {
+      const file = event.target.files[0];
+      if (!file || !targetTeacherKey) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const base64Img = e.target.result;
+        saveTeacherPhotoUrl(targetTeacherKey, base64Img);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function saveTeacherPhotoUrl(teacherKey, src) {
+      const storageKey = `yeollin_teacher_photo_${teacherKey}`;
+      localStorage.setItem(storageKey, src);
+      updateTeacherImageDOM(teacherKey, src);
+      showToast("선생님 사진이 성공적으로 등록되었습니다!");
+    }
+
+    function updateTeacherImageDOM(teacherKey, src) {
+      const imgEl = document.getElementById(`teacherImg-${teacherKey}`);
+      if (imgEl) imgEl.src = src;
+    }
+
+    function loadCustomImages() {
+      // Custom Logo
+      const savedLogo = localStorage.getItem('yeollin_custom_logo');
+      if (savedLogo) {
+        document.getElementById('logoContainer').innerHTML = `
+          <img src="${savedLogo}" alt="열린학원 로고" class="h-9 sm:h-11 w-auto object-contain max-w-[180px]" />
+        `;
+      }
+      // Custom Teacher Photos for all 8 teachers
+      const allTeachers = [
+        'math-sooseon', 'math-sooseok', 'math-soosoo',
+        'eng-kevin', 'eng-youngbaek', 'eng-carrie',
+        'kor-hooni', 'kor-kookgang',
+        'sci-gwajoon'
+      ];
+      allTeachers.forEach(key => {
+        const saved = localStorage.getItem(`yeollin_teacher_photo_${key}`);
+        if (saved) {
+          updateTeacherImageDOM(key, saved);
+        }
+      });
+    }
+
+    // Logo Upload
+    function triggerLogoUpload() {
+      document.getElementById('logoFileInput').click();
+    }
+
+    function handleLogoUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const base64Img = e.target.result;
+        localStorage.setItem('yeollin_custom_logo', base64Img);
+        document.getElementById('logoContainer').innerHTML = `
+          <img src="${base64Img}" alt="열린학원 로고" class="h-9 sm:h-11 w-auto object-contain max-w-[180px]" />
+        `;
+        showToast("학원 로고가 변경되었습니다!");
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Admin Auth
+    function toggleAdminAccess() {
+      if (isAdminUnlocked) {
+        exitAdminMode();
+      } else {
+        document.getElementById('passwordModal').classList.remove('hidden');
+        document.getElementById('passwordModal').classList.add('flex');
+        document.getElementById('adminPasswordInput').value = '';
+        document.getElementById('adminPasswordInput').focus();
+      }
+    }
+
+    function closePasswordModal() {
+      document.getElementById('passwordModal').classList.add('hidden');
+      document.getElementById('passwordModal').classList.remove('flex');
+    }
+
+    function verifyAdminPassword() {
+      const input = document.getElementById('adminPasswordInput').value;
+      const savedPwd = localStorage.getItem(PASSWORD_KEY) || '1234';
+
+      if (input === savedPwd) {
+        closePasswordModal();
+        activateAdminMode();
+        showToast("관리자 인증 성공! 실시간 텍스트 수정이 가능합니다.");
+        playBeep("C6");
+      } else {
+        showToast("비밀번호가 일치하지 않습니다. (기본값: 1234)");
+        playBeep("A4");
+      }
+    }
+
+    function activateAdminMode() {
+      isAdminUnlocked = true;
+      document.getElementById('adminDock').classList.remove('hidden');
+      const label = document.getElementById('adminStatusLabel');
+      label.innerText = "종료";
+      label.parentElement.classList.add('bg-blue-50', 'border-blue-600', 'text-brand-600');
+
+      document.querySelectorAll('[data-key]').forEach(el => {
+        el.setAttribute('contenteditable', 'true');
+        el.classList.add('admin-editable-outline');
+      });
+    }
+
+    function exitAdminMode() {
+      isAdminUnlocked = false;
+      document.getElementById('adminDock').classList.add('hidden');
+      const label = document.getElementById('adminStatusLabel');
+      label.innerText = "관리자";
+      label.parentElement.classList.remove('bg-blue-50', 'border-blue-600', 'text-brand-600');
+
+      document.querySelectorAll('[data-key]').forEach(el => {
+        el.removeAttribute('contenteditable');
+        el.classList.remove('admin-editable-outline');
+      });
+      showToast("관리자 모드가 종료되었습니다.");
+    }
+
+    function saveAllEdits() {
+      playBeep("G5");
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        siteData[key] = el.innerText.trim();
+      });
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(siteData));
+      showToast("수정한 내용이 브라우저 로컬 저장소에 영구 저장되었습니다!");
+    }
+
+    // Lead Form Submit
+    function handleConsultationSubmit(e) {
+      e.preventDefault();
+      playBeep("F5");
+
+      const name = document.getElementById('consultName').value.trim();
+      const phone = document.getElementById('consultPhone').value.trim();
+      const grade = document.getElementById('consultGrade').value;
+      const time = document.getElementById('consultTime').value;
+      const memo = document.getElementById('consultMemo').value.trim();
+
+      const selectedSubjects = [];
+      document.querySelectorAll('input[name="consultSubjects"]:checked').forEach(cb => {
+        selectedSubjects.push(cb.value);
+      });
+
+      if (selectedSubjects.length === 0) {
+        showToast("최소 1개 이상의 관심 과목을 선택해주세요.");
+        return;
+      }
+
+      const newInquiry = {
+        id: Date.now(),
+        date: new Date().toLocaleString('ko-KR'),
+        name,
+        phone,
+        grade,
+        time,
+        subjects: selectedSubjects.join(', '),
+        memo: memo || '요청사항 없음'
+      };
+
+      try {
+        const list = JSON.parse(localStorage.getItem(INQUIRIES_KEY) || '[]');
+        list.unshift(newInquiry);
+        localStorage.setItem(INQUIRIES_KEY, JSON.stringify(list));
+        updateInquiryBadge();
+      } catch (err) {
+        console.error(err);
+      }
+
+      document.getElementById('consultForm').reset();
+      showToast("🎉 상담 신청이 접수되었습니다! 담당 선생님께서 곧 연락드립니다.");
+    }
+
+    function updateInquiryBadge() {
+      const list = JSON.parse(localStorage.getItem(INQUIRIES_KEY) || '[]');
+      const badge = document.getElementById('inquiryCountBadge');
+      if (badge) badge.innerText = list.length;
+    }
+
+    function openInquiriesModal() {
+      playBeep("D5");
+      const modal = document.getElementById('inquiriesModal');
+      const listContainer = document.getElementById('inquiriesListContainer');
+      const list = JSON.parse(localStorage.getItem(INQUIRIES_KEY) || '[]');
+
+      if (list.length === 0) {
+        listContainer.innerHTML = `
+          <div class="text-center py-10 text-slate-400">
+            <i data-lucide="inbox" class="w-10 h-10 mx-auto mb-2 opacity-30"></i>
+            <p class="text-xs sm:text-sm font-semibold">현재 접수된 상담 내역이 없습니다.</p>
+          </div>
+        `;
+      } else {
+        listContainer.innerHTML = list.map(item => `
+          <div class="p-3.5 sm:p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white transition-all space-y-1.5 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="font-extrabold text-brand-600 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100">
+                ${escapeHtml(item.grade)} · ${escapeHtml(item.subjects)}
+              </span>
+              <span class="text-slate-400 font-mono text-[11px]">${item.date}</span>
+            </div>
+            <div class="flex items-baseline justify-between pt-1">
+              <div class="flex items-baseline gap-2">
+                <span class="font-bold text-slate-900 text-sm">${escapeHtml(item.name)}</span>
+                <a href="tel:${escapeHtml(item.phone)}" class="font-semibold text-brand-600 hover:underline">${escapeHtml(item.phone)}</a>
+              </div>
+              <span class="text-slate-500 font-medium">희망: ${escapeHtml(item.time)}</span>
+            </div>
+            <p class="text-slate-600 bg-white p-2.5 rounded-lg border border-slate-100 leading-relaxed">${escapeHtml(item.memo)}</p>
+          </div>
+        `).join('');
+      }
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      lucide.createIcons();
+    }
+
+    function closeInquiriesModal() {
+      document.getElementById('inquiriesModal').classList.add('hidden');
+      document.getElementById('inquiriesModal').classList.remove('flex');
+    }
+
+    function clearAllInquiries() {
+      if (confirm("모든 상담 접수 내역을 삭제하시겠습니까?")) {
+        localStorage.removeItem(INQUIRIES_KEY);
+        updateInquiryBadge();
+        openInquiriesModal();
+        showToast("모든 상담 내역이 삭제되었습니다.");
+      }
+    }
+
+    function exportInquiriesCSV() {
+      const list = JSON.parse(localStorage.getItem(INQUIRIES_KEY) || '[]');
+      if (list.length === 0) {
+        showToast("내보낼 상담 데이터가 없습니다.");
+        return;
+      }
+      let csv = "\uFEFF접수일시,이름,연락처,학년,희망과목,희망시간,메모\n";
+      list.forEach(i => {
+        csv += `"${i.date}","${i.name}","${i.phone}","${i.grade}","${i.subjects}","${i.time}","${i.memo.replace(/"/g, '""')}"\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `열린학원_금촌점_상담목록_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      showToast("상담 목록 CSV 파일이 다운로드되었습니다.");
+    }
+
+    // Backup & Restore
+    function exportSiteConfig() {
+      saveAllEdits();
+      const configStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(siteData, null, 2));
+      const a = document.createElement('a');
+      a.href = configStr;
+      a.download = "yeollin_geumchon_config.json";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      showToast("학원 설정 백업 파일(JSON) 다운로드 완료");
+    }
+
+    function importSiteConfig() {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = '.json';
+      input.onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          try {
+            const parsed = JSON.parse(ev.target.result);
+            siteData = Object.assign({}, DEFAULT_DATA, parsed);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(siteData));
+            applyDataToDOM();
+            showToast("설정 파일이 성공적으로 적용되었습니다!");
+          } catch(err) {
+            showToast("유효하지 않은 설정 파일입니다.");
+          }
+        };
+        reader.readAsText(file);
+      };
+      input.click();
+    }
+
+    function resetDefaults() {
+      if (confirm("모든 텍스트와 사진 설정을 공장초기화하시겠습니까?")) {
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem('yeollin_custom_logo');
+        const allTeachers = [
+          'math-sooseon', 'math-sooseok', 'math-soosoo',
+          'eng-kevin', 'eng-youngbaek', 'eng-carrie',
+          'kor-hooni', 'kor-kookgang',
+          'sci-gwajoon'
+        ];
+        allTeachers.forEach(k => localStorage.removeItem(`yeollin_teacher_photo_${k}`));
+        siteData = { ...DEFAULT_DATA };
+        location.reload();
+      }
+    }
+
+    function changeAdminPasswordPrompt() {
+      const current = prompt("현재 비밀번호를 입력해주세요:");
+      const savedPwd = localStorage.getItem(PASSWORD_KEY) || '1234';
+      if (current === savedPwd) {
+        const next = prompt("새로운 비밀번호를 입력해주세요 (4자리 이상):");
+        if (next && next.trim().length >= 4) {
+          localStorage.setItem(PASSWORD_KEY, next.trim());
+          showToast("관리자 비밀번호가 성공적으로 변경되었습니다.");
+        } else {
+          showToast("비밀번호는 최소 4자리 이상이어야 합니다.");
+        }
+      } else {
+        showToast("현재 비밀번호가 일치하지 않습니다.");
+      }
+    }
+
+    // Toast Helper
+    let toastTimer;
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMessage').innerText = msg;
+      toast.classList.remove('translate-y-[-140%]', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add('translate-y-[-140%]', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3500);
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+  </script>
+</body>
+</html>
